@@ -43,7 +43,6 @@ public class ProductController {
 	@GetMapping("/api/product/productNameSameCheck")
 	public @ResponseBody CMRespDto<Boolean> productNameSameCheck(String productName) {
 		boolean isSame = productService.상품명중복확인(productName);
-		System.out.println(productName);
 		return new CMRespDto<>(1, "성공", isSame);
 	}
 	// 상품 등록 페이지로 이동
@@ -53,9 +52,9 @@ public class ProductController {
 	}
 	// 상품등록하기 - insert
 	@PostMapping("/product/add")
-	public String productInsert(Product product) {
+	public @ResponseBody CMRespDto<?> productInsert(@RequestBody Product product) {
 		productDao.insert(product);
-		return "redirect:/";
+		return new CMRespDto<>(1, "상품등록성공", null);
 	}
 
 	// 상품 수정 페이지로 이동
