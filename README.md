@@ -1,4 +1,4 @@
-# 연습문제 MyBatis
+#MyBatis
 
 ### 1. View 생성
 - 상품등록 페이지
